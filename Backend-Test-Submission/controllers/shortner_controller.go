@@ -47,7 +47,7 @@ func GetShortUrl(c echo.Context) error {
 }
 
 func GetStats(c echo.Context) error {
-	code := c.Param("shortcode")
+	code := c.Param("code")
 	var short models.ShortURL
 	if err := config.DB.Where("short_code = ?", code).Preload("ClickDetails").First(&short).Error; err != nil {
 		return c.JSON(http.StatusNotFound, echo.Map{"error": "Shortcode not found"})
