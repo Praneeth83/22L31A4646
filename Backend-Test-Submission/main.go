@@ -2,7 +2,7 @@ package main
 
 import (
 	"Backend-Test-Submission/config"
-	"net/http"
+	"Backend-Test-Submission/routes"
 
 	"github.com/labstack/echo/v4"
 )
@@ -10,10 +10,6 @@ import (
 func main() {
 	config.InitDB()
 	e := echo.New()
-	e.GET("/", func(c echo.Context) error {
-		return c.JSON(http.StatusOK, echo.Map{
-			"message": "Hello Client!",
-		})
-	})
+	routes.ShorterRoutes(e)
 	e.Logger.Fatal(e.Start(":8080"))
 }
