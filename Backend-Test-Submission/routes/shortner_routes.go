@@ -1,6 +1,10 @@
 package routes
 
-import "github.com/labstack/echo/v4"
+import (
+	"Backend-Test-Submission/controllers"
+
+	"github.com/labstack/echo/v4"
+)
 
 func ShorterRoutes(e *echo.Echo) {
 	e.POST("/shorturls", controllers.GetShortUrl)
